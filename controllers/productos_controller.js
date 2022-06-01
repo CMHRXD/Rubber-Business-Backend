@@ -33,7 +33,7 @@ const getProducts = async (req, res) => {
                 price: producto.price,
                 cant: producto.cant,
                 sucursal: sucursales.find(sucursal => sucursal._id.toString() === producto.sucursal.toString()).name,
-                image: producto.image = "http://localhost:5000/" + producto.image
+                image: producto.image = process.env.FRONTEND_URL + producto.image
             };
         });
         res.json(productos);
