@@ -67,9 +67,9 @@ const getVentas = async (req, res) => {
         ventas = ventas.map(venta => {
             return {
                 _id: venta._id,
-                sucursal: venta.sucursal,
-                user: req.user.name,
-                client: venta.client,
+                sucursal: sucursales.find(sucursal => sucursal._id.toString() === venta.sucursal.toString()).name,
+                user:users.find(user => user._id.toString() == venta.user.toString()).name,
+                client : clients.find(client => client._id.toString() === venta.client.toString()).name, 
                 products: venta.products,
                 cant: venta.cant,
                 total: venta.total,
